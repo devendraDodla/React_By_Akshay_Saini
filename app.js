@@ -39,7 +39,7 @@ const parent = React.createElement(
         ]
         )
     ]
-);
+)
 
 console.log(parent)
 
