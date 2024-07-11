@@ -20,3 +20,7 @@
 - Tree Shaking - removed unused code
 
 # BrowserslistModule -> Refer the Document
+
+
+# Hooks
+    - Whenever a state variable gets updated React Re-render the component
