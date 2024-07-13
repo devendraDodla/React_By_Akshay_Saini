@@ -3,6 +3,8 @@ import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
     const [btnName,setBtnName] = useState("Login")
+
+    // Whenever state variables update, react triggers a reconcilation cycle ( re-renders the component)
     return (
         <div className="header">
             <div className="logo-container">
