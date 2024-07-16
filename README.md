@@ -23,4 +23,12 @@
 
 
 # Hooks
-    - Whenever a state variable gets updated React Re-render the component
+    - Whenever a state variable gets react triggers the reconcialiation updated React Re-render the component
+
+    - Normal JS utilit functions
+    - useState() - SuperPowerful
+    - useState()
+# 2 Types Routing in web apps
+Combination of this single page application 
+    - Client Side Routing
+    - Server Side Routing -> Make a network call some path coming from the server and page getting refreshed 
