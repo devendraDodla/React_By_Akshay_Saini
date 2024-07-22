@@ -1,14 +1,4 @@
-// const About = () => {
-//     return (
-//         <div>
-//             <h1>About</h1>
-//             <h2>This is About Page</h2>
-//         </div>
-//     )
-// }
 
-import React from "react";
-import UserClass from "./UserClass";
 
 export class About extends React.Component {
     constructor(props) {
@@ -28,10 +18,8 @@ export class About extends React.Component {
                 <h1>About Class Component</h1>
                 <h2>This is Namaste React Web Series</h2>
                 <UserClass name = {"Dev (class)"} location = {"Hyderabad"} />
-                
+
             </div>
         )
     }
 }
-
-export default About;
