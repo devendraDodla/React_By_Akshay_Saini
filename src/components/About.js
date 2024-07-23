@@ -28,7 +28,7 @@ export class About extends React.Component {
                 <h1>About Class Component</h1>
                 <h2>This is Namaste React Web Series</h2>
                 <UserClass name = {"Dev (class)"} location = {"Hyderabad"} />
-                
+                <UserClass name = {"Harry (class)"} location = {"Banglore"} />
             </div>
         )
     }
