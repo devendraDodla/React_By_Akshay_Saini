@@ -14,21 +14,20 @@ export class About extends React.Component {
     constructor(props) {
         super(props);
 
+        
         console.log("Parent Constructor");
     }
 
-    componentDidMount() {
-        console.log("Parent Component Did Mount");
+    async componentDidMount() {
+        console.log("Parent Did Mount")
     }
 
     render() {
-        console.log("Parent Render")
         return (
             <div>
-                <h1>About Class Component</h1>
-                <h2>This is Namaste React Web Series</h2>
+                <h1>Parent</h1>
+                {/* <img src = {avatar_url} /> */}
                 <UserClass name = {"Dev (class)"} location = {"Hyderabad"} />
-                <UserClass name = {"Harry (class)"} location = {"Banglore"} />
             </div>
         )
     }
