@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
     const [btnName,setBtnName] = useState("Login")
 
-    const onlineStatus = useOnlineStatus();
+    const onlineStatus = useOnlineStatus(); // Custom Hooks
     // Whenever state variables update, react triggers a reconcilation cycle ( re-renders the component)
     return (
-        <div className="flex justify-between bg-pink-100 shadow-md sm:bg-gray-100">
+        <div className="flex justify-between bg-pink-100 shadow-md sm:bg-gray-100 h-[150px]">
             <div className="logo-container">
-                <img className = "width" src = {LOGO_URL}></img>
+                <img className = "h-[150px] " src = {LOGO_URL}></img>
             </div>
             <div className="flex items-center">
                 <ul className="flex p-4 m-4">

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
+// CUSTOM_HOOKS
 const useOnlineStatus = () => {
     // check if online
-    const [onlineStatus, setOnlineStatus] = useState()
+    const [onlineStatus, setOnlineStatus] = useState(true)
 
     useEffect(() => {
         console.log("RENDERNG!!!!")

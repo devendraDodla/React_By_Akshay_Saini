@@ -1,35 +1,34 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestCategory from "./ResCategory";
 
 const RestaurantMenu = () => {
-    const [resInfo, setResInfo] = useState(null)
-    useEffect(() => {
-        fetchMenu();
-    }, [])
-
-    const fetchMenu = async () => {
-        const data = await fetch(
-            "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.37240&lng=78.43780&restaurantId=367769&catalog_qa=undefined&submitAction=ENTER"
-        );
-        const json = await data.json();
-
-        setResInfo(json.data);
-        
-    }
-    if(resInfo === null) return <Shimmer />
-    console.log("JSON",resInfo)
-    console.log("THe tex",resInfo?.cards[0]?.card?.card?.text)
     
-    return (
-        <div>
+    const { resId } = useParams();
 
-            <h1>{resInfo?.cards[0]?.card?.card?.text}</h1>
-            <h2>Menu</h2>
-            <ul>
-                <li>Biriyani</li>
-                <li>Burgers</li>
-                <li>Diet Cake</li>
-            </ul>
+    const resInfo = useRestaurantMenu(resId);
+
+
+    if (resInfo === null) return <Shimmer/>;
+    
+    const { name, cuisines, costForTwoMessage} = resInfo?.cards[2]?.card?.card.info;
+
+    const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+
+    const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((res) => res.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+    // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((res) => res.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"))
+
+    return (
+        <div className="text-center">
+            <h1 className="font-semibold my-10 text-2xl">{name}</h1>
+            <p>
+                {cuisines.join(", ")} - {costForTwoMessage}
+            </p>
+            {categories.map((category) => (
+                <RestCategory data = {category?.card?.card} />
+            ))}
         </div>
     )
 };
